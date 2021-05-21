@@ -31,12 +31,11 @@
       function processJSON(event) {
         var json = this.responseText;
         obj = JSON.parse(json);
-        console.log(obj);
         var wrapper = document.getElementById("teamPics");
         obj["data"].forEach(element => {
           var child = document.createElement("div");
           child.setAttribute("class", "swiper-slide rounded-3 shadow-5-strong");
-          child.setAttribute("style", `background-image: url("https://cyber-hound.github.io/radio-iiserk${element["image"]}")`);
+          child.style.backgroundImage = `url("https://cyber-hound.github.io/radio-iiserk${element['image']}")`;
           console.log(child);
           wrapper.appendChild(child);
         });
@@ -203,6 +202,7 @@
     <script type="text/javascript">
     window.addEventListener('DOMContentLoaded', createSwiper);
     function createSwiper() {
+      console.log(obj);
       var swiper = new Swiper(".mySwiper", {
         effect: "coverflow",
         grabCursor: true,
