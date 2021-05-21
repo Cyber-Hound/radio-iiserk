@@ -36,7 +36,6 @@
           var child = document.createElement("div");
           child.setAttribute("class", "swiper-slide rounded-3 shadow-5-strong");
           child.style.backgroundImage = `url("https://cyber-hound.github.io/radio-iiserk${element['image']}")`;
-          console.log(child);
           wrapper.appendChild(child);
         });
       }
@@ -202,7 +201,6 @@
     <script type="text/javascript">
     window.addEventListener('DOMContentLoaded', createSwiper);
     function createSwiper() {
-      console.log(obj);
       var swiper = new Swiper(".mySwiper", {
         effect: "coverflow",
         grabCursor: true,
