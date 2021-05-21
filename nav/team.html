@@ -20,7 +20,25 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.5.0/mdb.min.css" rel="stylesheet"/>
     <link rel="stylesheet" href="/radio-iiserk/css/style.css" />
     <!-- HeadScripts -->
+    <script type="text/javascript">
+      var xhr = new XMLHttpRequest();
+      xhr.open("GET", "https://cyber-hound.github.io/radio-iiserk/api/team.json");
+      xhr.addEventListener('load', processJSON);
+      xhr.send();
+      var obj;
 
+      function processJSON(event) {
+        var json = this.responseText;
+        obj = JSON.parse(json);
+        var wrapper = document.getElementById("teamPics");
+        obj["data"].forEach(element => {
+          var child = document.createElement("div");
+          child.setAttribute("class", "swiper-slide rounded-3 shadow-5-strong");
+          child.style.backgroundImage = `url("https://cyber-hound.github.io/radio-iiserk${element['image']}")`;
+          wrapper.appendChild(child);
+        });
+      }
+    </script>
   </head>
   <body>
 <header>
@@ -178,25 +196,6 @@
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <!-- Custom scripts -->
     <script type="text/javascript">
-      var xhr = new XMLHttpRequest();
-      xhr.open("GET", "https://cyber-hound.github.io/radio-iiserk/api/team.json");
-      xhr.addEventListener('load', processJSON);
-      xhr.send();
-      var obj;
-
-      function processJSON(event) {
-        var json = this.responseText;
-        obj = JSON.parse(json);
-        var wrapper = document.getElementById("teamPics");
-        obj["data"].forEach(element => {
-          var child = document.createElement("div");
-          child.setAttribute("class", "swiper-slide rounded-3 shadow-5-strong");
-          child.style.backgroundImage = `url("https://cyber-hound.github.io/radio-iiserk${element['image']}")`;
-          wrapper.appendChild(child);
-        });
-      }
-    window.addEventListener('DOMContentLoaded', createSwiper);
-    function createSwiper() {
       var swiper = new Swiper(".mySwiper", {
         effect: "coverflow",
         grabCursor: true,
@@ -217,20 +216,23 @@
         loop: true,
         on: {
           slideChange: function (){
-            var nameEle = document.getElementById("memberName");
-            var postEle = document.getElementById("memberPost");
-            var desiEle = document.getElementById("memberDesignation");
-            var quoteEle = document.getElementById("memberQuote");
-            var id = this.realIndex;
-            nameEle.innerHTML = `${obj["data"][id]["name"]}`;
-            postEle.innerHTML = `${obj["data"][id]["post"]}`;
-            desiEle.innerHTML = `${obj["data"][id]["designation"]}`;
-            quoteEle.innerHTML = `"${obj["data"][id]["quote"]}"`;
+            setData(this.realIndex);
+          },
+          init: {
+          setData(0);
           }
         }
       });
-    }
-
+     function setData(index) {
+       var nameEle = document.getElementById("memberName");
+            var postEle = document.getElementById("memberPost");
+            var desiEle = document.getElementById("memberDesignation");
+            var quoteEle = document.getElementById("memberQuote");
+            nameEle.innerHTML = `${obj["data"][index]["name"]}`;
+            postEle.innerHTML = `${obj["data"][index]["post"]}`;
+            desiEle.innerHTML = `${obj["data"][index]["designation"]}`;
+            quoteEle.innerHTML = `"${obj["data"][index]["quote"]}"`;
+     }
     </script>
   </body>
 </html>
