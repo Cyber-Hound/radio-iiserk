@@ -35,7 +35,7 @@
         obj["data"].forEach(element => {
           var child = document.createElement("div");
           child.setAttribute("class", "swiper-slide rounded-3 shadow-5-strong");
-          child.innerHTML = `<img src ="https://cyber-hound.github.io/radio-iiserk${element["image"]}" alt="${element["name"]}" width="100%">`;
+          child.innerHTML = `<img class="rounded-3" src ="https://cyber-hound.github.io/radio-iiserk${element["image"]}" alt="${element["name"]}" width="100%">`;
           wrapper.appendChild(child);
         });
         gallery(obj);
