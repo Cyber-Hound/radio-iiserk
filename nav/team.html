@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>IISER-K Campus Radio</title>
+    <!-- MDB icon -->
+    <link rel="icon" href="/logo.svg" type="image/x-icon" />
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" />
+    <!-- Google Fonts -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Montserrat:wght@300;400;500&display=swap"
+    />
+    <!-- Swiper -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <!-- MDB -->
+    <link rel="stylesheet" href="/css/mdb.min.css" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <!-- HeadScripts -->
+    <!-- <script type="text/javascript" src="/api/team.json"></script> -->
+    <script type="text/javascript">
+      var xhr = new XMLHttpRequest();
+      xhr.open("GET", "/api/team.json");
+      xhr.addEventListener('load', processJSON);
+      xhr.send();
+      var obj;
+
+      function processJSON(event) {
+        var json = this.responseText;
+        obj = JSON.parse(json);
+        var wrapper = document.getElementById("teamPics");
+        obj["data"].forEach(element => {
+          var child = document.createElement("div");
+          child.setAttribute("class", "swiper-slide rounded-3 shadow-5-strong");
+          child.setAttribute("style", `background-image: url(${element["image"]})`);
+          wrapper.appendChild(child);
+        });
+      }
+
+    </script>
+
+  </head>
+  <body>
+<header>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark navbar-style fixed-top" style="backdrop-filter: blur(10px);">
+    <div class="container-fluid">
+        <a href="#" class="navbar-brand ms-0">
+            <img src="/logo.svg" alt="" class="logo">
+        </a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-mdb-toggle="collapse"
+        data-mdb-target="#navbarLinks"
+        aria-controls="navbarLinks"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarLinks">
+        <ul class="navbar-nav ms-auto me-lg-5 mb-lg-0 fs-5 fw-bold">
+          <li class="nav-item mx-2">
+            <a class="nav-link" href="/index.html">HOME</a>
+          </li>
+          <li class="nav-item mx-2">
+            <a class="nav-link" href="">VIDEOS & PODCAST</a>
+          </li>
+          <li class="nav-item mx-2">
+            <a class="nav-link" href="">NEWSLETTER</a>
+          </li>
+          <li class="nav-item mx-2">
+            <a class="nav-link" href="">ABOUT</a>
+          </li>
+          <li class="nav-item mx-2">
+            <a class="nav-link active" aria-current="page" href="#">TEAM</a>
+          </li>
+          <li class="nav-item mx-2">
+            <a class="nav-link" href="">CONTACT US</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- Navbar -->
+</header>
+<!-- Content -->
+<main class="view d-flex flex-column justify-content-center align-items-center" style="background-image: url(/images/bg2.jpg); background-repeat: no-repeat;background-size: cover;">
+    <!-- Gallery -->
+    <div class="swiper-container mySwiper">
+      <div class="swiper-wrapper" id="teamPics">
+      </div>
+    </div>
+    <!-- Details -->
+    <div class="text-white text-center w-auto mx-4 py-2 px-2 px-md-5 glass-card">
+      <h3 class="display-6 fw-bold" id="memberName" style="font-family: 'Montserrat', sans-serif;"></h3>
+      <h4 class="h2 fw-normal" id="memberPost" style="font-family: 'Montserrat', sans-serif;"></h4>
+      <h4 class="h6 fw-normal" id="memberDesignation" style="font-family: 'Montserrat', sans-serif;"></h4>
+      <p class="mt-5 fs-6 fw-lighter fst-italic" id="memberQuote" style="font-family: 'Montserrat', sans-serif;"></p>
+    </div>
+  </main>
+  <!-- Footer -->
+  <footer class="text-center text-lg-start" style="background-color: rgb(30, 40, 51);">
+    <!-- Grid container -->
+    <div class="container px-5 py-4">
+      <!--Grid row-->
+      <div class="row">
+        <!--Grid column-->
+        <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
+          <a href="/index.html" class="align-content-center align-content-lg-start">
+            <img src="/logo.svg" alt="" width="60px">
+          </a>
+          <h1 class="fs-5 text-white fw-normal py-4">Subscribe to our <br> newsletter</h1>
+          <div class="input-group justify-content-center justify-content-lg-start">
+            <div class="form-outline">
+              <input type="email" id="typeEmail" class="form-control text-white fw-light" />
+              <label class="form-label text-white fw-light fst-italic" for="typeEmail">Email Address</label>
+            </div>
+            <button type="submit" class="btn" style="background-color: rgb(224, 185, 115);">
+              <i class="fas fa-envelope fa-lg" style="color: rgb(30, 40, 51);"></i>
+            </button>
+          </div>
+        </div>
+        <!--Grid column-->
+
+        <!--Grid column-->
+        <div class="col-lg-2 col-md-6 mb-4 mb-md-0 text-white">
+          <h5 class="text-uppercase">navigation</h5>
+
+          <ul class="list-unstyled mb-0">
+            <li>
+              <a href="/index.html" class="text-white">Home</a>
+            </li>
+            <li>
+              <a href="#!" class="text-white">Videos & Podcast</a>
+            </li>
+            <li>
+              <a href="#!" class="text-white">Newsletter</a>
+            </li>
+            <li>
+              <a href="#!" class="text-white">About us</a>
+            </li>
+            <li>
+              <a href="#!" class="text-white">Contact us</a>
+            </li>
+          </ul>
+        </div>
+        <!--Grid column-->
+
+        <!--Grid column-->
+        <div class="col-lg-2 col-md-6 mb-4 mb-md-0 text-white">
+          <h5 class="text-uppercase">Newsletter</h5>
+
+          <ul class="list-unstyled mb-0">
+            <li>
+              <a href="#!" class="text-white">Letter 1</a>
+            </li>
+            <li>
+              <a href="#!" class="text-white">Letter 2</a>
+            </li>
+            <li>
+              <a href="#!" class="text-white">Letter 3</a>
+            </li>
+            <li>
+              <a href="#!" class="text-white">Letter 4</a>
+            </li>
+            <li>
+              <a href="#!" class="text-white">Letter 5</a>
+            </li>
+          </ul>
+        </div>
+        <!--Grid column-->
+
+        <!-- grid column -->
+        <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
+
+        </div>
+        <!-- grid column -->
+      </div>
+      <!--Grid row-->
+    </div>
+    <!-- Grid container -->
+
+    <!-- Copyright -->
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+      © 2021 Copyright:
+      <a class="text-white-50" href="https://mdbootstrap.com/">RadioK - IISER-Kolkata</a>
+    </div>
+    <!-- Copyright -->
+  </footer>
+  <!-- Footer -->
+    <!-- MDB -->
+    <script type="text/javascript" src="/js/mdb.min.js"></script>
+    <!-- Swiper -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <!-- Custom scripts -->
+    <script type="text/javascript">
+    window.addEventListener('DOMContentLoaded', createSwiper);
+    function createSwiper() {
+      var swiper = new Swiper(".mySwiper", {
+        effect: "coverflow",
+        grabCursor: true,
+        centeredSlides: true,
+        slidesPerView: "auto",
+        mousewheel: true,
+        coverflowEffect: {
+          rotate: 0,
+          stretch: 0,
+          depth: 200,
+          modifier: 1,
+          slideShadows: true,
+        },
+        autoplay: {
+          delay: 5000,
+          disableOnInteraction: false
+        },
+        loop: true,
+        on: {
+          slideChange: function (){
+            var nameEle = document.getElementById("memberName");
+            var postEle = document.getElementById("memberPost");
+            var desiEle = document.getElementById("memberDesignation");
+            var quoteEle = document.getElementById("memberQuote");
+            var id = this.realIndex;
+            nameEle.innerHTML = `${obj["data"][id]["name"]}`;
+            postEle.innerHTML = `${obj["data"][id]["post"]}`;
+            desiEle.innerHTML = `${obj["data"][id]["designation"]}`;
+            quoteEle.innerHTML = `"${obj["data"][id]["quote"]}"`;
+          }
+        }
+      });
+    }
+
+    </script>
+  </body>
+</html>
