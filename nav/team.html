@@ -31,6 +31,7 @@
       function processJSON(event) {
         var json = this.responseText;
         obj = JSON.parse(json);
+        console.log(obj);
         var wrapper = document.getElementById("teamPics");
         obj["data"].forEach(element => {
           var child = document.createElement("div");
