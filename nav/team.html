@@ -36,7 +36,7 @@
         obj["data"].forEach(element => {
           var child = document.createElement("div");
           child.setAttribute("class", "swiper-slide rounded-3 shadow-5-strong");
-          child.setAttribute("style", `background-image: url("https://cyber-hound.github.io/radio-iiserk"+${element["image"]})`);
+          child.setAttribute("style", `background-image: url("https://cyber-hound.github.io/radio-iiserk${element["image"]}")`);
           console.log(child);
           wrapper.appendChild(child);
         });
