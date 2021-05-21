@@ -17,30 +17,9 @@
     <!-- Swiper -->
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <!-- MDB -->
-    <link rel="stylesheet" href="/radio-iiserk/css/mdb.min.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.5.0/mdb.min.css" rel="stylesheet"/>
     <link rel="stylesheet" href="/radio-iiserk/css/style.css" />
     <!-- HeadScripts -->
-    <!-- <script type="text/javascript" src="/api/team.json"></script> -->
-    <script type="text/javascript">
-      var xhr = new XMLHttpRequest();
-      xhr.open("GET", "https://cyber-hound.github.io/radio-iiserk/api/team.json");
-      xhr.addEventListener('load', processJSON);
-      xhr.send();
-      var obj;
-
-      function processJSON(event) {
-        var json = this.responseText;
-        obj = JSON.parse(json);
-        var wrapper = document.getElementById("teamPics");
-        obj["data"].forEach(element => {
-          var child = document.createElement("div");
-          child.setAttribute("class", "swiper-slide rounded-3 shadow-5-strong");
-          child.style.backgroundImage = `url("https://cyber-hound.github.io/radio-iiserk${element['image']}")`;
-          wrapper.appendChild(child);
-        });
-      }
-
-    </script>
 
   </head>
   <body>
@@ -199,6 +178,23 @@
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <!-- Custom scripts -->
     <script type="text/javascript">
+      var xhr = new XMLHttpRequest();
+      xhr.open("GET", "https://cyber-hound.github.io/radio-iiserk/api/team.json");
+      xhr.addEventListener('load', processJSON);
+      xhr.send();
+      var obj;
+
+      function processJSON(event) {
+        var json = this.responseText;
+        obj = JSON.parse(json);
+        var wrapper = document.getElementById("teamPics");
+        obj["data"].forEach(element => {
+          var child = document.createElement("div");
+          child.setAttribute("class", "swiper-slide rounded-3 shadow-5-strong");
+          child.style.backgroundImage = `url("https://cyber-hound.github.io/radio-iiserk${element['image']}")`;
+          wrapper.appendChild(child);
+        });
+      }
     window.addEventListener('DOMContentLoaded', createSwiper);
     function createSwiper() {
       var swiper = new Swiper(".mySwiper", {
