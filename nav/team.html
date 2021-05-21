@@ -17,13 +17,13 @@
     <!-- Swiper -->
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <!-- MDB -->
-    <link rel="stylesheet" href="/css/mdb.min.css" />
-    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/radio-iiserk/css/mdb.min.css" />
+    <link rel="stylesheet" href="/radio-iiserk/css/style.css" />
     <!-- HeadScripts -->
     <!-- <script type="text/javascript" src="/api/team.json"></script> -->
     <script type="text/javascript">
       var xhr = new XMLHttpRequest();
-      xhr.open("GET", "/api/team.json");
+      xhr.open("GET", "/radio-iiserk/api/team.json");
       xhr.addEventListener('load', processJSON);
       xhr.send();
       var obj;
@@ -35,7 +35,7 @@
         obj["data"].forEach(element => {
           var child = document.createElement("div");
           child.setAttribute("class", "swiper-slide rounded-3 shadow-5-strong");
-          child.setAttribute("style", `background-image: url(${element["image"]})`);
+          child.setAttribute("style", `background-image: url("/radio-iiserk"+${element["image"]})`);
           wrapper.appendChild(child);
         });
       }
@@ -65,7 +65,7 @@
       <div class="collapse navbar-collapse" id="navbarLinks">
         <ul class="navbar-nav ms-auto me-lg-5 mb-lg-0 fs-5 fw-bold">
           <li class="nav-item mx-2">
-            <a class="nav-link" href="/index.html">HOME</a>
+            <a class="nav-link" href="/radio-iiserk/index.html">HOME</a>
           </li>
           <li class="nav-item mx-2">
             <a class="nav-link" href="">VIDEOS & PODCAST</a>
@@ -89,7 +89,7 @@
   <!-- Navbar -->
 </header>
 <!-- Content -->
-<main class="view d-flex flex-column justify-content-center align-items-center" style="background-image: url(/images/bg2.jpg); background-repeat: no-repeat;background-size: cover;">
+<main class="view d-flex flex-column justify-content-center align-items-center" style="background-image: url(/radio-iiserk/images/bg2.jpg); background-repeat: no-repeat;background-size: cover;">
     <!-- Gallery -->
     <div class="swiper-container mySwiper">
       <div class="swiper-wrapper" id="teamPics">
@@ -133,7 +133,7 @@
 
           <ul class="list-unstyled mb-0">
             <li>
-              <a href="/index.html" class="text-white">Home</a>
+              <a href="/radio-iiserk/index.html" class="text-white">Home</a>
             </li>
             <li>
               <a href="#!" class="text-white">Videos & Podcast</a>
@@ -194,7 +194,7 @@
   </footer>
   <!-- Footer -->
     <!-- MDB -->
-    <script type="text/javascript" src="/js/mdb.min.js"></script>
+    <script type="text/javascript" src="/radio-iiserk/js/mdb.min.js"></script>
     <!-- Swiper -->
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <!-- Custom scripts -->
