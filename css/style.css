@@ -11,6 +11,7 @@ body {
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
 }
+
 .header{
     height: 100vh;
 }
@@ -121,13 +122,17 @@ body {
   height: 100%;
 }
 .allContainer{
+  display: flex;
+  flex-direction: column;
   padding-top: 8rem;
 }
 .playerContainer{
+  order: 1;
   padding: 1em;
   width: 100%;
 }
 .evePodContainer {
+  order: 2;
   padding: 1em;
   display: flex;
   flex-direction: column;
