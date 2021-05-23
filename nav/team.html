@@ -16,76 +16,50 @@
     />
     <!-- Swiper -->
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <style>
+      /* SWIPER */
+.swiper-container {
+    width: 100%;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+.swiper-slide {
+    background-position: center;
+    background-size: cover;
+    width: 300px;
+    height: 300px;
+    filter: blur(6px);
+}
+.swiper-slide-active {
+    filter: blur(0px);
+}
+@media only screen and (min-width: 768px) {
+  /* For tablets: */
+  .swiper-slide {width: 370px; height: 370px;}
+}
+@media only screen and (min-width: 1024px) {
+  /* For tablets: */
+  .swiper-slide {width: 450px; height: 450px;}
+}
+.swiper-slide img {
+    display: block;
+    width: 100%;
+}
+
+    </style>
+        <!-- Swiper -->
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <!-- MDB -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.5.0/mdb.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="/radio-iiserk/css/mdb.min.css" />
     <link rel="stylesheet" href="/radio-iiserk/css/style.css" />
-    <!-- HeadScripts -->
-    <script type="text/javascript">
-      var xhr = new XMLHttpRequest();
-      xhr.open("GET", "https://cyber-hound.github.io/radio-iiserk/api/team.json");
-      xhr.addEventListener('load', processJSON);
-      xhr.send();
-      var obj;
+    <!-- My Script -->
+    <script type="text/javascript" src="/radio-iiserk/js/team.js"></script>
 
-      function processJSON(event) {
-        var json = this.responseText;
-        obj = JSON.parse(json);
-        var wrapper = document.getElementById("teamPics");
-        obj["data"].forEach(element => {
-          var child = document.createElement("div");
-          child.setAttribute("class", "swiper-slide rounded-3 shadow-5-strong");
-          child.innerHTML = `<img class="rounded-3" src ="https://cyber-hound.github.io/radio-iiserk${element["image"]}" alt="${element["name"]}" width="100%">`;
-          wrapper.appendChild(child);
-        });
-        gallery(obj);
-      }
-      
-      function gallery (res) {
-              var swiper = new Swiper(".mySwiper", {
-        effect: "coverflow",
-        grabCursor: true,
-        centeredSlides: true,
-        slidesPerView: "auto",
-        mousewheel: true,
-        coverflowEffect: {
-          rotate: 0,
-          stretch: 0,
-          depth: 200,
-          modifier: 1,
-          slideShadows: true,
-        },
-        autoplay: {
-          delay: 5000,
-          disableOnInteraction: false
-        },
-        loop: true,
-        on: {
-          slideChange: function (){
-            setData(this.realIndex);
-          },
-          init: function() {
-          setData(0);
-          }
-        }
-      });
-     function setData(index) {
-       var nameEle = document.getElementById("memberName");
-            var postEle = document.getElementById("memberPost");
-            var desiEle = document.getElementById("memberDesignation");
-            var quoteEle = document.getElementById("memberQuote");
-            nameEle.innerHTML = `${res["data"][index]["name"]}`;
-            postEle.innerHTML = `${res["data"][index]["post"]}`;
-            desiEle.innerHTML = `${res["data"][index]["designation"]}`;
-            quoteEle.innerHTML = `"${res["data"][index]["quote"]}"`;
-     }
-    }
-    </script>
   </head>
-  <body>
+  <body style="background-image: url(/images/bg2.jpg); background-repeat: no-repeat;background-size: cover;">
 <header>
   <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-dark navbar-style fixed-top" style="backdrop-filter: blur(10px);">
+  <nav class="navbar navbar-expand-lg navbar-dark navbar-style fixed-top">
     <div class="container-fluid">
         <a href="#" class="navbar-brand ms-0">
             <img src="/radio-iiserk/logo.svg" alt="" class="logo">
@@ -107,19 +81,19 @@
             <a class="nav-link" href="/radio-iiserk/index.html">HOME</a>
           </li>
           <li class="nav-item mx-2">
-            <a class="nav-link" href="">VIDEOS & PODCAST</a>
+            <a class="nav-link" href="/radio-iiserk/nav/videos.html">VIDEOS & PODCAST</a>
           </li>
           <li class="nav-item mx-2">
-            <a class="nav-link" href="">NEWSLETTER</a>
+            <a class="nav-link" href="/radio-iiserk/nav/news.html">NEWSLETTER</a>
           </li>
           <li class="nav-item mx-2">
-            <a class="nav-link" href="">ABOUT</a>
+            <a class="nav-link" href="/radio-iiserk/nav/about.html">ABOUT</a>
           </li>
           <li class="nav-item mx-2">
             <a class="nav-link active" aria-current="page" href="#">TEAM</a>
           </li>
           <li class="nav-item mx-2">
-            <a class="nav-link" href="">CONTACT US</a>
+            <a class="nav-link" href="/radio-iiserk/nav/contact.html">CONTACT US</a>
           </li>
         </ul>
       </div>
@@ -128,7 +102,7 @@
   <!-- Navbar -->
 </header>
 <!-- Content -->
-<main class="view d-flex flex-column justify-content-center align-items-center" style="background-image: url(/radio-iiserk/images/bg2.jpg); background-repeat: no-repeat;background-size: cover;">
+<main class="view d-flex flex-column justify-content-center align-items-center">
     <!-- Gallery -->
     <div class="swiper-container mySwiper">
       <div class="swiper-wrapper" id="teamPics">
@@ -175,16 +149,16 @@
               <a href="/radio-iiserk/index.html" class="text-white">Home</a>
             </li>
             <li>
-              <a href="#!" class="text-white">Videos & Podcast</a>
+              <a href="/radio-iiserk/nav/videos.html" class="text-white">Videos & Podcast</a>
             </li>
             <li>
-              <a href="#!" class="text-white">Newsletter</a>
+              <a href="/radio-iiserk/nav/news.html" class="text-white">Newsletter</a>
             </li>
             <li>
-              <a href="#!" class="text-white">About us</a>
+              <a href="/radio-iiserk/nav/about.html" class="text-white">About us</a>
             </li>
             <li>
-              <a href="#!" class="text-white">Contact us</a>
+              <a href="/radio-iiserk/nav/contact.html" class="text-white">Contact us</a>
             </li>
           </ul>
         </div>
@@ -237,6 +211,7 @@
 
     <!-- Custom scripts -->
     <script type="text/javascript">
+
 
     </script>
   </body>

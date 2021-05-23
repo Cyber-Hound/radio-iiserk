@@ -11,8 +11,9 @@
 }
 
 .navbar-style{
-    background-color: rgba(255, 255, 255, 0.1);
-    box-shadow: 0 5px 10px #000000;
+    background-color: rgb(4, 10, 22, 0.8);
+    box-shadow: 0 1px 15px #000000;
+    backdrop-filter: blur(25px);
 }
 
 .logo{
@@ -38,6 +39,24 @@
   .landing-heading {font-size: 8vw;}
 }
 
+.about-heading {
+	text-transform: uppercase;
+	background: linear-gradient(to bottom right, #ffffff 10%, #504c46 200%);
+	-webkit-background-clip: text;
+	background-clip: text;
+	-webkit-text-fill-color: transparent;
+    font-family: 'Poppins', sans-serif;
+    /* mobile */
+    font-size: 8vw
+}
+@media only screen and (min-width: 768px) {
+  /* For tablets: */
+  .about-heading {font-size: 6vw;}
+}
+@media only screen and (min-width: 1024px) {
+  /* For tablets: */
+  .about-heading {font-size: 5vw;}
+}
 
 .landing-subheading{
     font-family: 'Montserrat', sans-serif;
@@ -51,36 +70,6 @@
   /* For tablets: */
   .landing-subheading {font-size: 2vw;}
 }
-
-/* SWIPER */
-.swiper-container {
-    width: 100%;
-    padding-top: 50px;
-    padding-bottom: 50px;
-}
-.swiper-slide {
-    background-position: center;
-    background-size: cover;
-    width: 300px;
-    height: 300px;
-    filter: blur(6px);
-}
-.swiper-slide-active {
-    filter: blur(0px);
-}
-@media only screen and (min-width: 768px) {
-  /* For tablets: */
-  .swiper-slide {width: 370px; height: 370px;}
-}
-@media only screen and (min-width: 1024px) {
-  /* For tablets: */
-  .swiper-slide {width: 450px; height: 450px;}
-}
-.swiper-slide img {
-    display: block;
-    width: 100%;
-}
-
 .glass-card{
     background: rgba(255, 255, 255, 0.03);
     border-radius: 10px;
@@ -89,4 +78,107 @@
     border-right: 1px solid rgba(255, 255, 255, 0.1);
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(15px);
+}
+.about-font {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1em;
+  font-weight: 300;
+  line-height: 2em;
+}
+@media only screen and (min-width: 768px) {
+  .about-font {
+    font-size: 1.2em;
+    line-height: 2.25em;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  .about-font {
+    font-size: 1.8em;
+    line-height: 2.25em;
+  }
+}
+
+.yt-embed{
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  max-width: 100%;
+}
+.yt-embed iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.allContainer{
+  padding-top: 8rem;
+}
+.playerContainer{
+  padding: 1em;
+  width: 100%;
+}
+.evePodContainer {
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+
+@media only screen and (min-width:768px) {
+
+.playerContainer {
+  position: absolute;
+  width: 60%;
+}
+.evePodContainer{
+  position: absolute;
+  right: 0em;
+  width: 40%;
+}
+}
+@media only screen and (min-width:1024px) {
+  .playerContainer{
+    left: 50%;
+    width: 40%;
+    margin-left: -20%;
+  }
+  .evePodContainer {
+    width: 100vw;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .eventContainer, .podcastContainer {
+    width: 30%;
+  }
+
+}
+.customList {
+  max-height: 30rem;
+  border-radius: 10px;
+  box-shadow: 0 25px 45px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+@media only screen and (min-width: 1024px){
+  .customList {
+    max-height: 100%;
+  }
+}
+.customListItem {
+  background: rgba(0, 0, 0, 0.7);
+  color: #ffffff;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+  padding: 0.5rem 0.5rem;
+  min-height: 5rem;
+  cursor: pointer;
+}
+
+.customListItem.active {
+  background: rgba(255, 255, 255, 0.3);
+  border-color: rgba(255, 255, 255, 0.5);
 }

@@ -1,0 +1,152 @@
+{
+  "status": "OK",
+  "featured": {
+    "id": "abc_xyz",
+    "title": "prONAMam - a virtual pre-Onam festival by Campus Radio IISER Kolkata",
+    "description": "A warm welcome to everyone watching this video. We, the Campus radio team, welcome you to the first vlog series - the Pre-Onam episode titled Pronamam 2020 with the IISER Kolkata Onam team 2020.<br><br> Host: Adrija Adhikary, Dishari Malakar <br> Guests: Lakshmi Krishnanand - 15MS, Vismay Viswanath - 14MS, Lakshmi - 17MS, Fazal - 18MS and Rithu Gokul-19MS.<br><br> Music used in this video: 1. Raga - Dance of Music - Aakash Gandhi 2. Fun in the Sun - Chris Haugen 3. Seventh Heaven - E's Jammy Jammies 4. Savannah Sunshine - Dan Henig 5. Muthaaram mudithalam - Kerala Tourism",
+    "link": "https://youtu.be/PhhVZaGa43g",
+    "type": 1,
+    "isUpcoming": false,
+    "thumbnail": "/api/vid_pod/vidThumb.jpg"
+  },
+  "data": {
+    "events": {
+      "upcomming": [
+        {
+          "id": "123",
+          "title": "IISER Kolkata vs IISER TVM Live Volleyball | IISM 2017",
+          "description": "Host: Sachin Pandey",
+          "link": "",
+          "type": 1,
+          "isUpcoming": true,
+          "thumbnail": "/api/vid_pod/vidThumb.jpg"
+        },
+        {
+          "id": "236",
+          "title": "Volleyball(B): IISER Kolkata vs CeBS | IISM 2017",
+          "description": "Host: Sachin Pandey",
+          "link": "",
+          "type": 1,
+          "isUpcoming": true,
+          "thumbnail": "/api/vid_pod/vidThumb.jpg"
+        },
+        {
+          "id": "5648",
+          "title": "Live Cricket IISER Kolkata vs NISER| IISM 2017",
+          "description": "Host: Sachin Pandey",
+          "link": "",
+          "type": 1,
+          "isUpcoming": true,
+          "thumbnail": "/api/vid_pod/vidThumb.jpg"
+        }
+      ],
+      "available": [
+        {
+          "id": "abc_xyz",
+          "title": "prONAMam - a virtual pre-Onam festival by Campus Radio IISER Kolkata",
+          "description": "A warm welcome to everyone watching this video. We, the Campus radio team, welcome you to the first vlog series - the Pre-Onam episode titled Pronamam 2020 with the IISER Kolkata Onam team 2020.<br><br> Host: Adrija Adhikary, Dishari Malakar <br> Guests: Lakshmi Krishnanand - 15MS, Vismay Viswanath - 14MS, Lakshmi - 17MS, Fazal - 18MS and Rithu Gokul-19MS.<br><br> Music used in this video: 1. Raga - Dance of Music - Aakash Gandhi 2. Fun in the Sun - Chris Haugen 3. Seventh Heaven - E's Jammy Jammies 4. Savannah Sunshine - Dan Henig 5. Muthaaram mudithalam - Kerala Tourism",
+          "link": "https://youtu.be/PhhVZaGa43g",
+          "type": 1,
+          "isUpcoming": false,
+          "thumbnail": "/api/vid_pod/vidThumb.jpg"
+        },
+        {
+          "id": "18",
+          "title": "মহিষাসুরমর্দ্দিনী | মহালয়া ১৪২৭ | Mahisasuramardini | Agomoni 2020 |",
+          "description": "IISER-K Campus Radio in Collaboration with IISER-K Pixel. <br> Script: Sayak Biswas and Soham Chakraborty <br>Sound of Dhak: Somaj Sevi Durga Puja Committee<br>Video edited: Aabir Mukhopadhyay <br>Idea by: Campus Radio <br>Special Thanks to Ritesh Ghosh for sharing photographs used in the video. Other photographs are taken from the competition of Agomoni by Pixel-the photography club of IISER-Kolkata",
+          "link": "https://youtu.be/2Cax8uJRDsM",
+          "type": 1,
+          "isUpcoming": false,
+          "thumbnail": "/api/vid_pod/vidThumb.jpg"
+        },
+        {
+          "id": "5648",
+          "title": "DepressASAN | Audio Drama | Mahalaya 2020 Special",
+          "description": "Depress-asan is a tragicomical intersection of the lives of three friends who stumble through their problems in their own ways. It is a reminder that even in a pandemic ridden year, the vices in our lives cannot outweigh the virtues, and hope always finds its way through. This audio drama had been first broadcasted on 17 September 2020, on the official Facebook page of IISER Kolkata Campus Radio.<br> <br>It was received by an overwhelming response from the audience watching it live. We hope you enjoy the glimpse of the unique elements present in such a compact audio drama presentation.<br> <br>Disclaimer: This is a work of fiction. Unless otherwise indicated, all the names, characters, businesses, places, events and incidents in this audio drama are either the product of the author's imagination or used in a fictitious manner. Any resemblance to actual persons, living or dead, or actual events is purely coincidental.<br><br>Writing and direction - Debmalya Bandyopadhyay, Acting - Soham Chakraborty, Sagnik Dutta, Taniya Mondal, Samya Roychowdhury, Shreya Banerjee, Arnab Nandi, Debmalya Bandyopadhyay, Bedangshu Mishra, Music - Sroyon Sengupta, Editing - Shreya Banerjee, Published and Distributed: IISER Kolkata Campus Radio",
+          "link": "https://youtu.be/mflZZpniF8w",
+          "type": 1,
+          "isUpcoming": false,
+          "thumbnail": "/api/vid_pod/vidThumb.jpg"
+        },
+        {
+          "id": "12658",
+          "title": "মহিষাসুরমর্দ্দিনী | মহালয়া ১৪২৭ | Mahisasuramardini | Agomoni 2020 |",
+          "description": "IISER-K Campus Radio in Collaboration with IISER-K Pixel. <br> Script: Sayak Biswas and Soham Chakraborty <br>Sound of Dhak: Somaj Sevi Durga Puja Committee<br>Video edited: Aabir Mukhopadhyay <br>Idea by: Campus Radio <br>Special Thanks to Ritesh Ghosh for sharing photographs used in the video. Other photographs are taken from the competition of Agomoni by Pixel-the photography club of IISER-Kolkata",
+          "link": "https://youtu.be/2Cax8uJRDsM",
+          "type": 1,
+          "isUpcoming": false,
+          "thumbnail": "/api/vid_pod/vidThumb.jpg"
+        }
+      ]
+    },
+    "podcasts": {
+      "upcomming": [
+        {
+          "id": "123",
+          "title": "IISER Kolkata vs IISER TVM Live Volleyball | IISM 2017",
+          "description": "Host: Sachin Pandey",
+          "link": "",
+          "type": 1,
+          "isUpcoming": true,
+          "thumbnail": "/api/vid_pod/vidThumb.jpg"
+        },
+        {
+          "id": "236",
+          "title": "Volleyball(B): IISER Kolkata vs CeBS | IISM 2017",
+          "description": "Host: Sachin Pandey",
+          "link": "",
+          "type": 1,
+          "isUpcoming": true,
+          "thumbnail": "/api/vid_pod/vidThumb.jpg"
+        },
+        {
+          "id": "5648",
+          "title": "Live Cricket IISER Kolkata vs NISER| IISM 2017",
+          "description": "Host: Sachin Pandey",
+          "link": "",
+          "type": 1,
+          "isUpcoming": true,
+          "thumbnail": "/api/vid_pod/vidThumb.jpg"
+        }
+      ],
+      "available": [
+        {
+          "id": "5498",
+          "title": "Nostalgia | Episode 1 | The IISER Kolkata Talk Show",
+          "description": "Nostalgia with the Alumni<br><br><b>Guests:</b> Dr. Subham Chandel, Dr. Preethi Thomas, Dr. Sourav Dutta, Dr. Pamir Nag, Tousif Islam, Mrinmoy Pal, Dr. Shubham Dipt,<br><br> Hosts: Kaustav Ganguly, Adrija Adhikary, Technical Support: Sachin Pandey, Niladri Modak, Aabir Mukhopadhyay, Sumit Garai, Video Editing: Sumit Garai, <br>Music: Rising Spirits by Jay Man (https://youtu.be/4oni0GOZRjE), <br>Idea: IISER Kolkata Campus Radio",
+          "link": "https://youtu.be/Iv-NMFErgBI",
+          "type": 1,
+          "isUpcoming": false,
+          "thumbnail": "/api/vid_pod/vidThumb.jpg"
+        },
+        {
+          "id": "18",
+          "title": "\"Art of Applying\" | Animish Nilesh Vaze | IISER Kolkata CampusRadio2020 |",
+          "description": "The talk is on something that the students (especially BS-MS) really want to know about - the \"Art of Applying\"Animish Nilesh Vaze (15MS), who is our recent alumni, the founder of GnoSciKa (newer batches might not know the significance), student initiator of the iGEM movement in IISER Kolkata, and much more, will be covering most of the basics of project applications, and it will be really useful in applying for project positions at any level, including PhD/internship/MS-Thesis/even Post-Docs to some extent. Furthermore, you will be getting to see details and actual examples of things that people generally refrain from showing anybody and learn how to master this art. So gear up for listening to an extremely informative and useful session with our very own Animish Nilesh Vaze and hope you like it and learn a lot from it!<br><br>Guest: Animish Nilesh Vaze, <br>Host: Diptatanu Das, <br>Technical Support: Diptatanu Das, <br>Video editing: Sumit Garai, Diptatanu Das, <br>Idea: IISER Kolkata Campus Radio, <br>Music: https://www.bensound.com/",
+          "link": "https://youtu.be/Vwb-Iy-Mpns",
+          "type": 1,
+          "isUpcoming": false,
+          "thumbnail": "/api/vid_pod/vidThumb.jpg"
+        },
+        {
+          "id": "5648",
+          "title": "DepressASAN | Audio Drama | Mahalaya 2020 Special",
+          "description": "Depress-asan is a tragicomical intersection of the lives of three friends who stumble through their problems in their own ways. It is a reminder that even in a pandemic ridden year, the vices in our lives cannot outweigh the virtues, and hope always finds its way through. This audio drama had been first broadcasted on 17 September 2020, on the official Facebook page of IISER Kolkata Campus Radio.<br> <br>It was received by an overwhelming response from the audience watching it live. We hope you enjoy the glimpse of the unique elements present in such a compact audio drama presentation.<br> <br>Disclaimer: This is a work of fiction. Unless otherwise indicated, all the names, characters, businesses, places, events and incidents in this audio drama are either the product of the author's imagination or used in a fictitious manner. Any resemblance to actual persons, living or dead, or actual events is purely coincidental.<br><br>Writing and direction - Debmalya Bandyopadhyay, Acting - Soham Chakraborty, Sagnik Dutta, Taniya Mondal, Samya Roychowdhury, Shreya Banerjee, Arnab Nandi, Debmalya Bandyopadhyay, Bedangshu Mishra, Music - Sroyon Sengupta, Editing - Shreya Banerjee, Published and Distributed: IISER Kolkata Campus Radio",
+          "link": "https://youtu.be/mflZZpniF8w",
+          "type": 1,
+          "isUpcoming": false,
+          "thumbnail": "/api/vid_pod/vidThumb.jpg"
+        },
+        {
+          "id": "12658",
+          "title": "মহিষাসুরমর্দ্দিনী | মহালয়া ১৪২৭ | Mahisasuramardini | Agomoni 2020 |",
+          "description": "IISER-K Campus Radio in Collaboration with IISER-K Pixel. <br> Script: Sayak Biswas and Soham Chakraborty <br>Sound of Dhak: Somaj Sevi Durga Puja Committee<br>Video edited: Aabir Mukhopadhyay <br>Idea by: Campus Radio <br>Special Thanks to Ritesh Ghosh for sharing photographs used in the video. Other photographs are taken from the competition of Agomoni by Pixel-the photography club of IISER-Kolkata",
+          "link": "https://youtu.be/2Cax8uJRDsM",
+          "type": 1,
+          "isUpcoming": false,
+          "thumbnail": "/api/vid_pod/vidThumb.jpg"
+        }
+      ]
+    }
+  }
+}
