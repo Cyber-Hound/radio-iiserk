@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
-    <title>IISER-K Campus Radio Videos</title>
-    <!-- Logo -->
+    <title>IISER-K Campus Radio Newsletter</title>
+    <!-- MDB icon -->
     <link rel="icon" href="/logo.svg" type="image/x-icon" />
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" />
@@ -14,20 +14,15 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Montserrat:wght@300&display=swap"
     />
-    <!-- Styles -->
+    <!-- MDB -->
     <link rel="stylesheet" href="/css/mdb.min.css" />
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-    <style>
-    .swiper-slide img{
-        vertical-align: middle;
-        width: 100%;
-    }
-    </style>
     <link rel="stylesheet" href="/css/style.css" />
-   <!--Scripts -->
+       <!--Scripts -->
     <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
     <script type="text/javascript" src="/js/api.js"></script>
-    <script type="text/javascript" src="/js/videos.js"></script>
+    <script type="text/javascript" src="/js/news.js"></script>
+
   </head>
   <body style="background-image: url('/images/bg3.jpg'); background-size:cover; background-repeat: no-repeat; background-attachment:fixed;">
 <header>
@@ -54,10 +49,10 @@
             <a class="nav-link" href="/index.html">HOME</a>
           </li>
           <li class="nav-item mx-2">
-            <a class="nav-link active" aria-current="page" href="#">VIDEOS & PODCAST</a>
+            <a class="nav-link" href="/nav/videos.html">VIDEOS & PODCAST</a>
           </li>
           <li class="nav-item mx-2">
-            <a class="nav-link" href="/nav/news.html">NEWSLETTER</a>
+            <a class="nav-link active" aria-current="page" href="#">NEWSLETTER</a>
           </li>
           <li class="nav-item mx-2">
             <a class="nav-link" href="/nav/about.html">ABOUT</a>
@@ -75,46 +70,17 @@
   <!-- Navbar -->
 </header>
 <main style="font-family: 'Montserrat', sans-serif;">
-    <div class="allContainer">
-      <div class="evePodContainer">
-        <!-- Events List -->
-        <div class="eventContainer ps-0 ps-md-2 ps-lg-0 pe-0 pe-lg-2 pt-4 pt-md-0">
-            <div class="swiper-container eventSwiper rounded-5">
-                <div class="swiper-wrapper" id="eventSwiper-wrapper"></div>
-                <div class="swiper-pagination"></div>
-            </div>
-            <h4 class="h4 text-white text-center pt-3">
-                Events
-            </h4>
-            <div class="list-group list-group-flush overflow-auto mt-3 rounded-4 customList" id="eventListContainer"></div>
-        </div>
-        <!-- Podcast List -->
-        <div class="podcastContainer ps-0 ps-md-2 ps-lg-0 pe-0 pe-lg-2  pt-4 pt-lg-0">
-            <div class="swiper-container podcastSwiper rounded-5">
-                <div class="swiper-wrapper" id="podcastSwiper-wrapper"></div>
-                <div class="swiper-pagination"></div>
-            </div>
-            <h4 class="h4 text-white text-center pt-3">
-                Podcasts
-            </h4>
-            <div class="list-group list-group-flush overflow-auto mt-3 rounded-4 customList" id="podcastListContainer"></div>
-        </div>
-      </div>
-      <!-- Current Video/Podcast to be Played, default to Latest -->
-      <div class="playerContainer">
-        <div class="glass-card py-3 px-2 text-white sizedPlayer" >
-          <h4 id="currentTitle" style="font-size:medium; font-weight: bold;"></h4>
-          <!-- video Embed -->
-          <div class="yt-embed glass-card">
-            <iframe class="rounded-3" id="currentEmbed" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-          </div>
-          <!-- video Description -->
-          <div class="my-3 mx-1 px-2  py-2 customListItem rounded-5">
-            <p id="currentDescription" class="fw-light fst-italic"></p>
-          </div>
-        </div>
+  <div class="d-flex flex-column pt-5 align-items-center justify-content-center">
+    <div class="pt-5 col col-11 col-md-8 col-lg-6">
+      <div class="swiper-container newsSwiper rounded-9">
+        <div class="swiper-wrapper" id="newsSwiper-wrapper"></div>
+        <div class="swiper-pagination"></div>
       </div>
     </div>
+    <div class="col col-12 pt-5">
+      <div class="d-flex flex-wrap" id="bottomList"></div>
+    </div>
+  </div>
 </main>
     <!-- MDB -->
     <script type="text/javascript" src="/js/mdb.min.js"></script>

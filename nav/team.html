@@ -4,9 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
-    <title>IISER-K Campus Radio</title>
+    <title>IISER-K Campus Radio Team Contact</title>
     <!-- MDB icon -->
-    <link rel="icon" href="/radio-iiserk/logo.svg" type="image/x-icon" />
+    <link rel="icon" href="/logo.svg" type="image/x-icon" />
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" />
     <!-- Google Fonts -->
@@ -50,19 +50,20 @@
         <!-- Swiper -->
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <!-- MDB -->
-    <link rel="stylesheet" href="/radio-iiserk/css/mdb.min.css" />
-    <link rel="stylesheet" href="/radio-iiserk/css/style.css" />
+    <link rel="stylesheet" href="/css/mdb.min.css" />
+    <link rel="stylesheet" href="/css/style.css" />
     <!-- My Script -->
-    <script type="text/javascript" src="/radio-iiserk/js/team.js"></script>
+    <script type="text/javascript" src="/js/api.js"></script>
+    <script type="text/javascript" src="/js/team.js"></script>
 
   </head>
-  <body style="background-image: url('/radio-iiserk/images/bg2.jpg'); background-repeat: no-repeat;background-size: cover;">
+  <body style="background-image: url(/images/bg2.jpg); background-repeat: no-repeat;background-size: cover;">
 <header>
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-dark navbar-style fixed-top">
     <div class="container-fluid">
-        <a href="#" class="navbar-brand ms-0">
-            <img src="/radio-iiserk/logo.svg" alt="" class="logo">
+        <a href="/index.html" class="navbar-brand ms-0">
+            <img src="/logo.svg" alt="" class="logo">
         </a>
       <button
         class="navbar-toggler"
@@ -78,22 +79,22 @@
       <div class="collapse navbar-collapse" id="navbarLinks">
         <ul class="navbar-nav ms-auto me-lg-5 mb-lg-0 fs-5 fw-bold">
           <li class="nav-item mx-2">
-            <a class="nav-link" href="/radio-iiserk/index.html">HOME</a>
+            <a class="nav-link" href="/index.html">HOME</a>
           </li>
           <li class="nav-item mx-2">
-            <a class="nav-link" href="/radio-iiserk/nav/videos.html">VIDEOS & PODCAST</a>
+            <a class="nav-link" href="/nav/videos.html">VIDEOS & PODCAST</a>
           </li>
           <li class="nav-item mx-2">
-            <a class="nav-link" href="/radio-iiserk/nav/news.html">NEWSLETTER</a>
+            <a class="nav-link" href="/nav/news.html">NEWSLETTER</a>
           </li>
           <li class="nav-item mx-2">
-            <a class="nav-link" href="/radio-iiserk/nav/about.html">ABOUT</a>
+            <a class="nav-link" href="/nav/about.html">ABOUT</a>
           </li>
           <li class="nav-item mx-2">
             <a class="nav-link active" aria-current="page" href="#">TEAM</a>
           </li>
           <li class="nav-item mx-2">
-            <a class="nav-link" href="/radio-iiserk/nav/contact.html">CONTACT US</a>
+            <a class="nav-link" href="#contact">CONTACT US</a>
           </li>
         </ul>
       </div>
@@ -117,15 +118,15 @@
     </div>
   </main>
   <!-- Footer -->
-  <footer class="text-center text-lg-start" style="background-color: rgb(30, 40, 51);">
+  <footer class="text-center text-lg-start" style="background-color: rgb(30, 40, 51);" id="contact">
     <!-- Grid container -->
     <div class="container px-5 py-4">
       <!--Grid row-->
       <div class="row">
         <!--Grid column-->
         <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
-          <a href="/radio-iiserk/index.html" class="align-content-center align-content-lg-start">
-            <img src="/radio-iiserk/logo.svg" alt="" width="60px">
+          <a href="/index.html" class="align-content-center align-content-lg-start">
+            <img src="/logo.svg" alt="" width="60px">
           </a>
           <h1 class="fs-5 text-white fw-normal py-4">Subscribe to our <br> newsletter</h1>
           <div class="input-group justify-content-center justify-content-lg-start">
@@ -146,19 +147,16 @@
 
           <ul class="list-unstyled mb-0">
             <li>
-              <a href="/radio-iiserk/index.html" class="text-white">Home</a>
+              <a href="/index.html" class="text-white">Home</a>
             </li>
             <li>
-              <a href="/radio-iiserk/nav/videos.html" class="text-white">Videos & Podcast</a>
+              <a href="/nav/videos.html" class="text-white">Videos & Podcast</a>
             </li>
             <li>
-              <a href="/radio-iiserk/nav/news.html" class="text-white">Newsletter</a>
+              <a href="/nav/news.html" class="text-white">Newsletter</a>
             </li>
             <li>
-              <a href="/radio-iiserk/nav/about.html" class="text-white">About us</a>
-            </li>
-            <li>
-              <a href="/radio-iiserk/nav/contact.html" class="text-white">Contact us</a>
+              <a href="/nav/about.html" class="text-white">About us</a>
             </li>
           </ul>
         </div>
@@ -167,30 +165,38 @@
         <!--Grid column-->
         <div class="col-lg-2 col-md-6 mb-4 mb-md-0 text-white">
           <h5 class="text-uppercase">Newsletter</h5>
-
-          <ul class="list-unstyled mb-0">
-            <li>
-              <a href="#!" class="text-white">Letter 1</a>
-            </li>
-            <li>
-              <a href="#!" class="text-white">Letter 2</a>
-            </li>
-            <li>
-              <a href="#!" class="text-white">Letter 3</a>
-            </li>
-            <li>
-              <a href="#!" class="text-white">Letter 4</a>
-            </li>
-            <li>
-              <a href="#!" class="text-white">Letter 5</a>
-            </li>
-          </ul>
+          <ul class="list-unstyled mb-0" id="newsletters"></ul>
         </div>
         <!--Grid column-->
 
         <!-- grid column -->
-        <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
-
+        <div class="col-lg-4 col-md-12 mb-4 mb-md-0 text-white">
+          <h5 class="text-uppercase ms-0 ms-lg-4">Contact us</h5>
+          <ul class="list-unstyled mb-0">
+            <li>
+              <i class="fas fa-phone-alt me-2"></i><a href="tel:+917365432567" class="text-white">+91-7365432567</a>
+            </li>
+            <li>
+              <i class="far fa-envelope me-2"></i><a href="mailto:radiok@isserkol.ac.in" class="text-white">radiok@isserkol.ac.in</a>
+            </li>
+            <li class="mt-3 mt-lg-4 ms-0 ms-lg-4">
+              <i class="text-white">Social Media</i>
+            </li>
+            <li class="mt-2">
+              <a href="#instaLink" class="text-white">
+                <i class="fab fa-instagram fa-2x me-3"></i>
+              </a>
+              <a href="#twitterLink" class="text-white">
+                <i class="fab fa-twitter-square fa-2x me-3"></i>
+              </a>
+              <a href="#lnLink" class="text-white">
+                <i class="fab fa-linkedin fa-2x me-3"></i>
+              </a>
+              <a href="#fbLink" class="text-white">
+                <i class="fab fa-facebook-square fa-2x"></i>
+              </a>
+            </li>
+          </ul>
         </div>
         <!-- grid column -->
       </div>
@@ -198,21 +204,30 @@
     </div>
     <!-- Grid container -->
 
-    <!-- Copyright -->
     <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
       © 2021 Copyright:
-      <a class="text-white-50" href="https://mdbootstrap.com/">RadioK - IISER-Kolkata</a>
+      <a class="text-white-50" href="#">RadioK - IISER-Kolkata</a><br/>
+      Made with <i class="fas fa-heart text-white-50"></i> by CyberHound
     </div>
-    <!-- Copyright -->
   </footer>
   <!-- Footer -->
     <!-- MDB -->
-    <script type="text/javascript" src="/radio-iiserk/js/mdb.min.js"></script>
+    <script type="text/javascript" src="/js/mdb.min.js"></script>
 
     <!-- Custom scripts -->
     <script type="text/javascript">
-
-
+    readApiFile("/api/news.json", loadNewsletters);
+    function loadNewsletters(params) {
+      var newsLetterEle = document.getElementById("newsletters");
+      var lettersData = JSON.parse(this.responseText);
+      lettersData.data.featured.data.forEach(element => {
+        var child = document.createElement("li");
+        child.innerHTML = `
+          <a href="${element.link}" class="text-white">${element.title}</a>
+        `;
+        newsLetterEle.appendChild(child);
+      });
+    }
     </script>
   </body>
 </html>
