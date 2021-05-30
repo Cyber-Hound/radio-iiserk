@@ -1,12 +1,8 @@
-var xhr = new XMLHttpRequest();
-      xhr.open("GET", "https://cyber-hound.github.io/radio-iiserk/api/team.json");
-      xhr.addEventListener('load', processJSON);
-      xhr.send();
-      var obj;
+readApiFile("/api/team.json", processJSON);
 
       function processJSON(event) {
         var json = this.responseText;
-        obj = JSON.parse(json);
+        var obj = JSON.parse(json);
         var wrapper = document.getElementById("teamPics");
         obj["data"].forEach(element => {
           var child = document.createElement("div");

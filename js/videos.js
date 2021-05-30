@@ -1,9 +1,6 @@
-var xhr = new XMLHttpRequest();
-xhr.open("GET", "https://cyber-hound.github.io/radio-iiserk/api/videos.json");
-xhr.addEventListener('load', processReq);
-xhr.send();
+readApiFile("/api/videos.json", loadVideos);
 
-function processReq(event) {
+function loadVideos(arguments) {
     var res = JSON.parse(this.responseText);
     const featuredData = res.featured;
     const upcommingEventsData = res.data.events.upcomming;
@@ -36,7 +33,7 @@ function buildUpcoming(swiperClass,swiperWrapperClass, ueData) {
     ueData.forEach(singleData => {
         var child = document.createElement("div");
         child.setAttribute("class", "swiper-slide");
-        child.innerHTML = `<img src="https://cyber-hound.github.io/radio-iiserk${singleData.thumbnail}" alt="thumb" >
+        child.innerHTML = `<img src="${singleData.thumbnail}" alt="thumb" >
         <div style="position: absolute; bottom:0; left:0; width:100%; backdrop-filter: blur(25px)"><div class="px-2 py-2 text-white">${singleData.title}<p style="font-size: 0.8em; font-style:italic; white-space: nowrap; width: 100%; overflow: hidden; -o-text-overflow: ellipsis; text-overflow:ellipsis;">${singleData.description}</p></div></div>
         `
         swiperWrapper.appendChild(child);
