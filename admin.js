@@ -5,14 +5,14 @@
     const err = document.getElementById('loginerror');
     const login = document.getElementById('sign-in');
     // initialize
-    const firebaseConfig = {
+    var firebaseConfig = {
         apiKey: "AIzaSyDV_gDmID_MIwB9VPBeYrJDavGb8o7FjDI",
         authDomain: "lasttry-b125b.firebaseapp.com",
         databaseURL: "https://lasttry-b125b-default-rtdb.firebaseio.com",
         projectId: "lasttry-b125b",
         storageBucket: "lasttry-b125b.appspot.com",
         messagingSenderId: "947695574275",
-        appId: "1:947695574275:web:dee0aa99eccb296e759d36"
+        appId: "1:947695574275:web:31f87fb4868edfd5759d36"
     };
     firebase.initializeApp(firebaseConfig);
 
