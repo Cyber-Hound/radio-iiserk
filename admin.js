@@ -31,6 +31,7 @@
 
     firebase.auth().onAuthStateChanged(user => {
         if (user) {
+            console.log(user)
             showcontent();
         } else {
             hidecontent();
@@ -65,7 +66,7 @@ window.onbeforeunload = function (e) {
     (e || window.event).returnValue = confirmationMessage; //Gecko + IE
     return confirmationMessage; //Gecko + Webkit, Safari, Chrome etc.
 }
-window.onload = () => {
+window.onload = function (e) {
     db.ref('videos/').once('value',(snapshot) => {
     const data = snapshot.val();
     loadVideoList(data)
@@ -76,6 +77,7 @@ window.onload = () => {
     });
 }
 function loadVideoList(data) {
+    console.log(data)
     if (data != null) {
         vidRes = data;
         setupVideoTable(vidRes);
@@ -302,7 +304,7 @@ function setVidResponse(res) {
     if (allVidsIndex != -1) {
         allVids[allVidsIndex] = structuredData;
     } else {
-        allVids.push(structuredData);
+        allVids.unshift(structuredData);
     }
 
     var featuredD;
@@ -490,14 +492,14 @@ function setNewsResponse(res) {
     if (allNewsIndex != -1) {
         allNews[allNewsIndex] = structuredNews;
     } else {
-        allNews.push(structuredNews);
+        allNews.unshift(structuredNews);
     }
 
     var i = (featuredNews.length > 0) ? featuredNews.findIndex(item => item.id === id) : -1;
     if (i != -1) {
         (res.setFeatured) ? featuredNews[i] = structuredNews : featuredNews.splice(i,1);
     } else {
-        if (res.setFeatured) featuredNews.push(structuredNews);
+        if (res.setFeatured) featuredNews.unshift(structuredNews);
     }
 
     newsRes = {
