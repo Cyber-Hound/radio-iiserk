@@ -19,7 +19,6 @@
     login.addEventListener('click', e => {
         e.preventDefault();
         const auth = firebase.auth();
-        console.log(email.value, pass.value)
         auth.signInWithEmailAndPassword(email.value, pass.value)
             .then(val => {
                 err.innerText = '';
@@ -31,7 +30,6 @@
 
     firebase.auth().onAuthStateChanged(user => {
         if (user) {
-            console.log(user)
             showcontent();
         } else {
             hidecontent();
@@ -77,7 +75,6 @@ window.onload = function (e) {
     });
 }
 function loadVideoList(data) {
-    console.log(data)
     if (data != null) {
         vidRes = data;
         setupVideoTable(vidRes);
