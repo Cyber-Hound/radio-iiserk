@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin DashBoard</title>
+    <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+    rel="stylesheet"
+    />
+    <link
+    href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+    rel="stylesheet"
+    />
+    <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.5.0/mdb.min.css"
+    rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
+    <script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
+    <style>
+    body {
+    background-color: #fbfbfb;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;
+    }
+    @media (min-width: 991.98px) {
+    main {
+        padding-left: 240px;
+    }
+    }
+    body::-webkit-scrollbar {
+    display: none;
+    }
+
+    /* Sidebar */
+    .sidebar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    padding: 58px 0 0; /* Height of navbar */
+    box-shadow: 0 2px 5px 0 rgb(0 0 0 / 5%), 0 2px 10px 0 rgb(0 0 0 / 5%);
+    width: 240px;
+    z-index: 600;
+    }
+
+    @media (max-width: 991.98px) {
+    .sidebar {
+        width: 100%;
+    }
+    }
+    .sidebar .active {
+    border-radius: 5px;
+    box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
+    }
+
+    .sidebar-sticky {
+    position: relative;
+    top: 0;
+    height: calc(100vh - 48px);
+    padding-top: 0.5rem;
+    overflow-x: hidden;
+    overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+    }
+    .thumbContainer {
+      position: relative;
+      overflow: hidden;
+      width: 100px;
+      height: 56.25px;
+    }
+    .hide-item {
+      display: none;
+    }
+    </style>
+</head>
+<body>
+<header>
+    <nav
+       id="sidebarMenu"
+       class="collapse d-lg-block sidebar collapse bg-white"
+       role="tablist"
+       >
+       <div class="d-flex flex-column justify-content-between h-100">
+         <div class="position-sticky">
+           <div class="list-group list-group-flush mx-3 mt-4 log-form">
+             <a class="list-group-item list-group-item-action py-2 ripple active" >
+               <i c0lass="fas fa-th-list fa-fw me-3"></i><span>Admin Login</span>
+             </a>
+           </div>
+           <div class="list-group list-group-flush mx-3 mt-4 log-content">
+             <a
+                href="#all-videos"
+                class="list-group-item list-group-item-action py-2 ripple active"
+                data-mdb-toggle="tab"
+                id="nav-link1"
+                role="tab"
+                aria-controls="all-videos"
+                aria-selected="false"
+                onclick="backToAllContent()"
+                >
+               <i class="fas fa-th-list fa-fw me-3"></i
+                 ><span>All Videos</span>
+             </a>
+
+             <a
+                href="#video-edit"
+                class="list-group-item list-group-item-action py-2 ripple"
+                data-mdb-toggle="tab"
+                id="nav-link2"
+                role="tab"
+                aria-controls="video-edit"
+                aria-selected="false"
+                onclick="navigateToVideo(undefined,'add',undefined, true)"
+                >
+               <i class="fas fa-photo-video fa-fw me-3"></i
+                 ><span>Add Video Content</span>
+             </a>
+             <a
+                href="#news-edit"
+                class="list-group-item list-group-item-action py-2 ripple"
+                data-mdb-toggle="tab"
+                id="nav-link3"
+                role="tab"
+                aria-controls="news-edit"
+                aria-selected="false"
+                onclick="navigateToNews(undefined,'add',undefined, true)"
+                >
+               <i class="fas fa-newspaper fa-fw me-3"></i
+                 ><span>Add Newsletter</span>
+             </a>
+           </div>
+         </div>
+         <div class="" style="background-color: rgba(0, 0, 0, 0.2);">
+             <div class="list-group-item list-group-item-action bg-white text-center" style="font-size: 0.8rem;">
+               © 2021 Copyright: <b>Campus Radio <br/> IISER-Kolkata</b> <br/>
+               Made with <i class="fas fa-heart"></i> by CyberHound
+             </div>
+         </div>
+       </div>
+      </nav>
+  <nav
+       id="main-navbar"
+       class="navbar navbar-expand-lg navbar-light bg-white fixed-top"
+       >
+    <!-- Container wrapper -->
+    <div class="container-fluid">
+      <!-- Toggle button -->
+      <button
+              class="navbar-toggler collapsed"
+              id="ham-btn"
+              type="button"
+              data-mdb-toggle="collapse"
+              data-mdb-target="#sidebarMenu"
+              aria-controls="sidebarMenu"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+              >
+        <i class="fas fa-bars"></i>
+      </button>
+
+      <!-- Brand -->
+      <a class="navbar-brand" href="#" onclick="backToAllContent()">
+        <img
+             src="/logo.svg"
+             style="filter: invert(29%) sepia(56%) saturate(4935%) hue-rotate(235deg) brightness(98%) contrast(90%);"
+             height="40"
+             alt=""
+             loading="lazy"
+             />
+      </a>
+
+      <!-- Right links -->
+      <ul class="navbar-nav ms-auto d-flex flex-row">
+        <strong class="align-self-center text-danger m-2 log-content" id='warning-save' style="font-size: 0.8rem;" hidden><em>There are Unpublished Changes</em></strong>
+        <button type="button" class="btn btn-primary btn-sm m-2 log-content" id="publish-btn" onclick="publish()" disabled>Publish</button>
+        <!-- Avatar -->
+        <li class="nav-item dropdown">
+          <a
+             class="nav-link dropdown-toggle hidden-arrow d-flex align-items-center"
+             href="#"
+             id="navbarDropdownMenuLink"
+             role="button"
+             data-mdb-toggle="dropdown"
+             aria-expanded="false"
+             >
+            <img
+                 src=""
+                 id="avatar"
+                 class="rounded-circle"
+                 height="40"
+                 alt=""
+                 loading="lazy"
+                 />
+          </a>
+          <ul
+              class="dropdown-menu dropdown-menu-end log-content"
+              aria-labelledby="navbarDropdownMenuLink"
+              >
+            <li><a class="dropdown-item" href="#" onclick="changePassModal()">Change Password</a></li>
+            <li><a class="dropdown-item" href="#" onclick="signOut();">Logout</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <!-- Container wrapper -->
+  </nav>
+</header>
+<!--Main layout-->
+<main style="margin-top: 120px">
+  <div class="pt-4 log-form" style="height: 100vh;">
+    <div class="d-flex justify-content-center p-4 mt-5 align-items-center" style="margin-top: 10rem!important;">
+      <div class="card">
+        <div class="card-header text-center py-3"><strong class="h5 text-success">Admin Login</strong></div>
+        <form style="width: 22rem;" class="card-body p-4 align-self-center" >
+            <!-- Email input -->
+            <div class="form-outline mb-4">
+              <input type="email" id="loginmail" class="form-control" />
+              <label class="form-label" for="loginmail">Email address</label>
+            </div>
+
+            <!-- Password input -->
+            <div class="form-outline mb-4">
+              <input type="password" id="loginpass" class="form-control" />
+              <label class="form-label" for="loginpass">Password</label>
+            </div>
+            <div class="text-center mb-2">
+              <div id="loginerror" class="text-danger" style="font-size: 0.8rem;"></div>
+            </div>
+            <div class="text-center mb-2">
+              <a href="#!" id="forgetpass" onclick="forgetPass()">Forgot password?</a>
+            </div>
+
+            <!-- Submit button -->
+            <button type="submit" class="btn btn-primary btn-block" id="sign-in">Sign in</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="container pt-4 tab-content log-content" id="nav-content">
+    <section class="mb-4 tab-pane fade show active" id="all-videos" role="tabpanel" aria-labelledby="nav-link1">
+      <div class="card">
+        <div class="card-header py-3">
+         <ul class="nav nav-pills nav-justified mb-3" id="pill-nav-main" role="tablist">
+          <li class="nav-item" role="presentation">
+            <a
+              class="nav-link active"
+              id="tab-videos"
+              data-mdb-toggle="pill"
+              href="#pills-videos"
+              role="tab"
+              aria-controls="pills-videos"
+              aria-selected="true"
+              >All Videos</a
+            >
+          </li>
+          <li class="nav-item" role="presentation">
+            <a
+              class="nav-link"
+              id="tab-news"
+              data-mdb-toggle="pill"
+              href="#pills-news"
+              role="tab"
+              aria-controls="pills-news"
+              aria-selected="false"
+              >All Newsletters</a
+            >
+          </li>
+        </ul>
+        </div>
+
+        <div class="tab-content">
+          <div class="tab-pane fade show active" id="pills-videos" role="tabpanel" aria-labelledby="tab-videos">
+            <div class="card-body">
+              <div class="table-responsive">
+                <table class="table table-hover text-nowrap">
+                  <thead>
+                    <th scope="col"><button type="button" class="btn btn-primary" onclick="navigateToVideo(undefined,'add',undefined, true)">Add Video</button></th>
+                    <th scope="col">Type</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Available</th>
+                    <th scope="col">Link</th>
+                    <th scope="col">Modify</th>
+                  </thead>
+                  <tbody id="videoTable">
+
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <!-- Next -->
+          <div class="tab-pane fade" id="pills-news" role="tabpanel" aria-labelledby="tab-news">
+            <div class="card-body">
+              <div class="table-responsive">
+                <table class="table table-hover text-nowrap">
+                  <thead>
+                    <th scope="col"><button type="button" class="btn btn-primary" onclick="navigateToNews(undefined,'add',undefined, true)">Add Newsletter</button></th>
+                    <th scope="col">Issue Details</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Link</th>
+                    <th scope="col">Thumbnail Link</th>
+                    <th scope="col">Modify</th>
+                  </thead>
+                  <tbody id="newsTable">
+
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ADD VIDEO -->
+    <section class="mb-4 tab-pane fade" id="video-edit" role="tabpanel" aria-labelledby="nav-link2">
+      <div class="card">
+        <div class="card-header py-3">
+          <h5 class="mb-0 text-center"><strong>Edit Video</strong></h5>
+        </div>
+        <div class="card-body">
+            <form id="videoForm">
+              <div class="btn-group mb-3">
+              <input type="hidden" name="id-input" id="id-input"/>
+              <input
+                type="radio"
+                class="btn-check"
+                name="videoType"
+                id="eventOption"
+                autocomplete="off"
+                value="1"
+                checked
+              />
+              <label class="btn btn-secondary" for="eventOption">Event</label>
+
+              <input type="radio" class="btn-check" name="videoType" id="podcastOption" autocomplete="off" value="2"/>
+              <label class="btn btn-secondary" for="podcastOption">Podcast</label>
+            </div>
+
+            <h6 class="m-2">Add Title</h6>
+              <div class="form-outline">
+                <input type="text" id="videoTitle" class="form-control" required/>
+                <label class="form-label" for="videoTitle">Title</label>
+              </div>
+
+              <h6 class="m-2">Add Description</h6>
+              <div class="form-outline mb-3">
+                <textarea class="form-control" id="videoDescriptionTF" rows="4"></textarea>
+              </div>
+
+              <h6 class="mb-2">Video Type</h6>
+              <div class="btn-group mb-3">
+              <input
+                type="radio"
+                class="btn-check"
+                name="videoAvailable"
+                id="video-upcoming"
+                value="true"
+                autocomplete="off"
+                onclick="toggleVideoDataVisibility(true)"
+                checked
+              />
+              <label class="btn btn-secondary" for="video-upcoming">Upcoming</label>
+              <input
+                type="radio"
+                class="btn-check"
+                name="videoAvailable"
+                id="video-available"
+                value="false"
+                autocomplete="off"
+                onclick="toggleVideoDataVisibility(false)"
+              />
+              <label class="btn btn-secondary" for="video-available">Available</label>
+            </div>
+              <div class="tab-content">
+                <div class="vid-data-tab tab-pane fade show active" id="thumb-data-tab" role="tabpanel" aria-labelledby="tab-thumb">
+                  <div class="card">
+                    <div class="bg-image hover-overlay ripple" data-ripple-color="light">
+                      <img
+                        src=""
+                        class="img-fluid"
+                        id="img-preview"
+                      />
+                      <div class="mask" style="background-color: rgba(251, 251, 251, 0.15)"></div>
+                    </div>
+                    <div class="card-body">
+                      <h5 class="card-title">Upload Thumbnail</h5>
+                      <input type="file" class="form-control" name="thumbData" id="thumb-data" onchange="uploadThumb(this.files)">
+                      <label for="thumb-data" class="form-label ms-2">Upload Thumbnail (Wait for link to be generated) - Preferred Aspect Ratio 16:9</label>
+                      <div class="form-outline">
+                        <strong class="m-2">Thumb Link</strong>
+                        <input type="url" id="thumb-link" class="form-control" disabled/>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="vid-data-tab tab-pane fade" id="yt-link-tab" role="tabpanel" aria-labelledby="tab-link">
+                  <div class="form-outline">
+                    <input type="url" id="yt-link" class="form-control"/>
+                    <label class="form-label" for="yt-link">YouTube Link</label>
+                  </div>
+                </div>
+              </div>
+              <div class="form-check mt-4">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  id="is-featured"
+                />
+                <label class="form-check-label" for="is-featured">
+                  Set as Featured Video
+                </label>
+              </div>
+
+              <div class="btn-toolbar justify-content-center d-flex">
+                <button type="button" class="btn btn-info mt-4 me-1" onclick="navigateToVideo(undefined, 'add', undefined);">Reset Fields</button>
+                <button type="submit" class="btn btn-success mt-4 ms-1" id="submit-btn" disabled>Submit</button>
+              </div>
+
+            </form>
+        </div>
+      </div>
+    </section>
+    <!-- ADD NEWS -->
+    <section class="mb-4 tab-pane fade" id="news-edit" role="tabpanel" aria-labelledby="nav-link3">
+      <div class="card">
+        <div class="card-header py-3">
+          <h5 class="mb-0 text-center"><strong>Edit Newsletter</strong></h5>
+        </div>
+        <div class="card-body">
+            <form id="newsForm">
+              <input type="hidden" name="id-input-n" id="id-input-n"/>
+              <div class="row my-2 d-flex">
+                <div class="col-12 align-self-center">
+                  <strong>Issue Details</strong>
+                </div>
+                <div class="form-outline col-5 col-md-2 m-2">
+                  <input type="text" id="issue-number" class="form-control" />
+                  <label class="form-label" for="issue-number">Issue</label>
+                </div>
+                <div class="form-outline col-5 col-md-2 m-2">
+                  <input type="text" id="issue-volume" class="form-control" />
+                  <label class="form-label" for="issue-volume">Volume</label>
+                </div>
+                <div class="col-5 my-2 col-md-3">
+                  <select id="issue-month" class="form-select">
+                    <option value="January">January</option>
+                    <option value="February">February</option>
+                    <option value="March">March</option>
+                    <option value="April">April</option>
+                    <option value="May">May</option>
+                    <option value="June">June</option>
+                    <option value="July">July</option>
+                    <option value="August">August</option>
+                    <option value="September">September</option>
+                    <option value="October">October</option>
+                    <option value="November">November</option>
+                    <option value="December">December</option>
+                  </select>
+                </div>
+                <div class="form-outline col-5 col-md-2 m-2">
+                  <input type="text" id="issue-year" class="form-control" />
+                  <label class="form-label" for="issue-year">Year</label>
+                </div>
+              </div>
+              <div class="row my-3">
+                <strong class="col-auto align-self-center">Heading</strong>
+                <div class="form-outline col-auto mx-2">
+                  <input type="text" id="issue-head" class="form-control" value="ABHIVAHYA"/>
+                </div>
+              </div>
+
+              <div class="row d-flex">
+                <strong class="col-auto align-self-center">Title</strong>
+                <div class="form-outline col-auto col-md-8 ms-md-4">
+                  <input type="text" id="issue-title" class="form-control"/>
+                  <label class="form-label" for="issue-title">Title</label>
+                </div>
+              </div>
+
+              <div class="card">
+                <div class="bg-image hover-overlay ripple" data-ripple-color="light">
+                  <img
+                    src=""
+                    class="img-fluid"
+                    id="n-img-preview"
+                  />
+                  <div class="mask" style="background-color: rgba(251, 251, 251, 0.15)"></div>
+                </div>
+                <div class="card-body">
+                  <strong class="col-auto align-self-center">Upload Thumbnail</strong>
+                  <input type="file" class="form-control" name="n-thumbData" id="n-thumb-data" onchange="uploadNewsThumb(this.files)">
+                  <label for="n-thumb-data" class="form-label ms-2">Upload Thumbnail (Wait for link to be generated) - Preferred Aspect Ratio 16:9</label>
+                  <div class="form-outline">
+                    <strong class="m-2">Thumb Link</strong>
+                    <input type="url" id="n-thumb-link" class="form-control" disabled/>
+                  </div>
+                </div>
+              </div>
+              <div class="row d-flex">
+                <strong class="col-auto align-self-center">Link</strong>
+                <div class="form-outline col-auto">
+                  <input type="url" id="issue-link" class="form-control"/>
+                  <label class="form-label" for="issue-link">Newsletter Link</label>
+                </div>
+              </div>
+
+              <div class="form-check mt-4">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  id="is-n-featured"
+                />
+                <label class="form-check-label" for="is-n-featured">
+                  Set as Featured Newsletter
+                </label>
+              </div>
+
+              <div class="btn-toolbar justify-content-center d-flex">
+                <button type="button" class="btn btn-info mt-4 me-1" onclick="navigateToNews(undefined, 'add', undefined);">Reset Fields</button>
+                <button type="submit" class="btn btn-success mt-4 ms-1" id="n-submit-btn" disabled>Submit</button>
+              </div>
+
+            </form>
+        </div>
+      </div>
+    </section>
+    <!-- MODAL -->
+    <div
+      class="modal fade"
+      id="confirmDiag"
+      tabindex="-1"
+      aria-labelledby="confirmlabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="confirmlabel">Confirm Delete?</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-mdb-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">Are you sure?</div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-outline-black" data-mdb-dismiss="modal">
+              Close
+            </button>
+            <button type="button" class="btn btn-outline-danger" id="confirm-delete-btn">Confirm</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="modal fade"
+      id="changePass"
+      tabindex="-1"
+      aria-labelledby="changePassLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="changePassLabel">Confirm Delete?</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-mdb-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div class="form-outline mb-4">
+              <input type="password" id="cp1" class="form-control" />
+              <label class="form-label" for="cp1">New Password</label>
+            </div>
+            <div class="form-outline mb-4">
+              <input type="password" id="cp2" class="form-control" />
+              <label class="form-label" for="cp2">Confirm Password</label>
+            </div>
+            <div class="text-danger" style="font-size: 0.8rem;" id="changepass-modal-err"></div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-light" data-mdb-dismiss="modal">
+              Close
+            </button>
+            <button type="button" class="btn btn-success" id="confirm-change-btn">Confirm</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+<!--Main layout-->
+    <!-- MDB -->s
+    <script
+    type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.5.0/mdb.min.js"
+    ></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-storage.js"></script>
+    <script src="https://unpkg.com/turndown/dist/turndown.js"></script>
+    <script src="https://unpkg.com/uuid@latest/dist/umd/uuidv4.min.js"></script>
+    <script type="text/javascript" src="dd.js"></script>
+    <script type="text/javascript" src="admin.js"></script>
+</body>
+</html>
