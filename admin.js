@@ -238,27 +238,49 @@ if (newsForm) {
 function uploadThumb(files) {
     if (files[0] == null) return;
     const fileName = document.getElementById("id-input").value.substring(0, 15);
-        // .concat(files[0].name.substring(files[0].name.lastIndexOf('.')));
-    storage.child(fileName).put(files[0]).then(snap => {
-        snap.ref.getDownloadURL().then(url => {
-            document.getElementById("thumb-link").value = url;
-            document.getElementById("img-preview").src = url;
-            document.getElementById("submit-btn").disabled = false;
+    var uploadTask = storage.child(fileName).put(files[0]);
+
+    uploadTask.on('state_changed',
+        (snapshot) => {
+            document.getElementById('vid-up-pro-cont').hidden = false;
+            var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+            document.getElementById('vid-up-pro').style.width = progress + '%';
+        },
+        (error) => {
+            console.log('upload Failed')
+        },
+        () => {
+            uploadTask.snapshot.ref.getDownloadURL().then((url) => {
+                document.getElementById('vid-up-pro-cont').hidden = true;
+                document.getElementById("thumb-link").value = url;
+                document.getElementById("img-preview").src = url;
+                document.getElementById("submit-btn").disabled = false;
+            });
         });
-    });
 
 }
 function uploadNewsThumb(files) {
     if (files[0] == null) return;
     const fileName = document.getElementById("id-input-n").value.substring(0, 15);
-        // .concat(files[0].name.substring(files[0].name.lastIndexOf('.')));
-    storage.child(fileName).put(files[0]).then(snap => {
-        snap.ref.getDownloadURL().then(url => {
-            document.getElementById("n-thumb-link").value = url;
-            document.getElementById("n-img-preview").src = url;
-            document.getElementById("n-submit-btn").disabled = false;
+    var uploadTask = storage.child(fileName).put(files[0]);
+
+    uploadTask.on('state_changed',
+        (snapshot) => {
+            document.getElementById('news-up-pro-cont').hidden = false;
+            var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+            document.getElementById('news-up-pro').style.width = progress + '%';
+        },
+        (error) => {
+            console.log('upload Failed')
+        },
+        () => {
+            uploadTask.snapshot.ref.getDownloadURL().then((url) => {
+                document.getElementById('news-up-pro-cont').hidden = true;
+                document.getElementById("n-thumb-link").value = url;
+                document.getElementById("n-img-preview").src = url;
+                document.getElementById("n-submit-btn").disabled = false;
+            });
         });
-    });
 }
 function validate() {
     var vidID = document.getElementById("id-input").value;
@@ -596,6 +618,7 @@ function changePassModal() {
     var confirmBtn = document.getElementById('confirm-change-btn');
     var errordiv = document.getElementById('changepass-modal-err');
     confirmBtn.addEventListener('click', (eve) => {
+        e.preventDefault();
         var cp1 = document.getElementById('cp1').value;
         var cp2 = document.getElementById('cp2').value;
         if (cp1 === cp2) {

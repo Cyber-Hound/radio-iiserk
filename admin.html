@@ -163,7 +163,7 @@
       <!-- Brand -->
       <a class="navbar-brand" href="#" onclick="backToAllContent()">
         <img
-             src="logo.svg"
+             src="/logo.svg"
              style="filter: invert(29%) sepia(56%) saturate(4935%) hue-rotate(235deg) brightness(98%) contrast(90%);"
              height="40"
              alt=""
@@ -388,6 +388,17 @@
                       <h5 class="card-title">Upload Thumbnail</h5>
                       <input type="file" class="form-control" name="thumbData" id="thumb-data" onchange="uploadThumb(this.files)">
                       <label for="thumb-data" class="form-label ms-2">Upload Thumbnail (Wait for link to be generated) - Preferred Aspect Ratio 16:9</label>
+                      <div class="progress" id="vid-up-pro-cont" hidden>
+                        <div
+                          class="progress-bar"
+                          id="vid-up-pro"
+                          role="progressbar"
+                          style="width: 0%;"
+                          aria-valuenow="75"
+                          aria-valuemin="0"
+                          aria-valuemax="100"
+                        ></div>
+                      </div>
                       <div class="form-outline">
                         <strong class="m-2">Thumb Link</strong>
                         <input type="url" id="thumb-link" class="form-control" disabled/>
@@ -492,6 +503,17 @@
                   <strong class="col-auto align-self-center">Upload Thumbnail</strong>
                   <input type="file" class="form-control" name="n-thumbData" id="n-thumb-data" onchange="uploadNewsThumb(this.files)">
                   <label for="n-thumb-data" class="form-label ms-2">Upload Thumbnail (Wait for link to be generated) - Preferred Aspect Ratio 16:9</label>
+                  <div class="progress" id="news-up-pro-cont" hidden>
+                        <div
+                          class="progress-bar"
+                          id="news-up-pro"
+                          role="progressbar"
+                          style="width: 0%;"
+                          aria-valuenow="75"
+                          aria-valuemin="0"
+                          aria-valuemax="100"
+                        ></div>
+                      </div>
                   <div class="form-outline">
                     <strong class="m-2">Thumb Link</strong>
                     <input type="url" id="n-thumb-link" class="form-control" disabled/>
@@ -596,7 +618,7 @@
   </div>
 </main>
 <!--Main layout-->
-    <!-- MDB -->s
+    <!-- MDB -->
     <script
     type="text/javascript"
     src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.5.0/mdb.min.js"
