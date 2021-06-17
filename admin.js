@@ -234,26 +234,58 @@ if (newsForm) {
 }
 function uploadThumb(files) {
     if (files[0] == null) return;
-    const fileName = document.getElementById("id-input").value.substring(0, 15);
-    var uploadTask = storage.child(fileName).put(files[0]);
+    
+    new Compressor(files[0], {
+        quality: 0.6,
+        success(res) {
+            const f = new FormData().append('file', res, res.name);
+            const fileName = document.getElementById("id-input").value.substring(0, 15);
+            var uploadTask = storage.child(fileName).put(f);
+            
+             uploadTask.on('state_changed',
+                (snapshot) => {
+                    document.getElementById('vid-up-pro-cont').hidden = false;
+                    var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                    document.getElementById('vid-up-pro').style.width = progress + '%';
+                },
+                (error) => {
+                    console.log('upload Failed')
+                },
+                () => {
+                    uploadTask.snapshot.ref.getDownloadURL().then((url) => {
+                        document.getElementById('vid-up-pro-cont').hidden = true;
+                        document.getElementById("thumb-link").value = url;
+                        document.getElementById("img-preview").src = url;
+                        document.getElementById("submit-btn").disabled = false;
+                    });
+                });
+        },
+        error(err) {
+            console.log(err.message);
+        }
+    });
+    
+//     const fileName = document.getElementById("id-input").value.substring(0, 15);
+//     var uploadTask = storage.child(fileName).put(files[0]);
+    
 
-    uploadTask.on('state_changed',
-        (snapshot) => {
-            document.getElementById('vid-up-pro-cont').hidden = false;
-            var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-            document.getElementById('vid-up-pro').style.width = progress + '%';
-        },
-        (error) => {
-            console.log('upload Failed')
-        },
-        () => {
-            uploadTask.snapshot.ref.getDownloadURL().then((url) => {
-                document.getElementById('vid-up-pro-cont').hidden = true;
-                document.getElementById("thumb-link").value = url;
-                document.getElementById("img-preview").src = url;
-                document.getElementById("submit-btn").disabled = false;
-            });
-        });
+//     uploadTask.on('state_changed',
+//         (snapshot) => {
+//             document.getElementById('vid-up-pro-cont').hidden = false;
+//             var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+//             document.getElementById('vid-up-pro').style.width = progress + '%';
+//         },
+//         (error) => {
+//             console.log('upload Failed')
+//         },
+//         () => {
+//             uploadTask.snapshot.ref.getDownloadURL().then((url) => {
+//                 document.getElementById('vid-up-pro-cont').hidden = true;
+//                 document.getElementById("thumb-link").value = url;
+//                 document.getElementById("img-preview").src = url;
+//                 document.getElementById("submit-btn").disabled = false;
+//             });
+//         });
 
 }
 function uploadNewsThumb(files) {
