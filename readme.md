@@ -1,3 +1,6 @@
+### Set the relative file paths properly.
+-search for avatar.png, avatar-blank.png, admin.js, dd.js, logo.svg in the code (admin.html)
+
 ### Change API Keys in Config
 
     const  firebaseConfig  = {
